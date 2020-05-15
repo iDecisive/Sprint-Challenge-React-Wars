@@ -53,6 +53,10 @@ const App = () => {
 
   }
 
+  console.log(char1);
+  console.log(char2);
+  console.log(char3);
+  console.log(char4);
   console.log(char5);
 
 
@@ -60,11 +64,11 @@ const App = () => {
     <AppDiv className='App'>
       <Title className='Header'>Characters</Title>
 
-      <Character char={char1}/> {/* Would be cool to tyle their text shadow as red or blue depending on what side they're on */}
-      <Character char={char2}/>
-      <Character char={char3}/>
-      <Character char={char4}/>
-      <Character char={char5}/>
+      <Character char={char1} charid='1'/> {/* Would be cool to tyle their text shadow as red or blue depending on what side they're on */}
+      <Character char={char2} charid='2'/>
+      <Character char={char3} charid='3'/>
+      <Character char={char4} charid='4'/>
+      <Character char={char5} charid='5'/>
 
     </AppDiv>
   );
