@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
@@ -16,7 +16,24 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  axios.get().then().catch()
+  useEffect(_ => {
+
+    axios.get("https://swapi.py4e.com/api/people/1/").then(res => {setChar1(res.data)}).catch()
+    axios.get("https://swapi.py4e.com/api/people/2/").then(res => {setChar2(res.data)}).catch()
+    axios.get("https://swapi.py4e.com/api/people/3/").then(res => {setChar3(res.data)}).catch()
+    axios.get("https://swapi.py4e.com/api/people/4/").then(res => {setChar4(res.data)}).catch()
+    axios.get("https://swapi.py4e.com/api/people/5/").then(res => {setChar5(res.data)}).catch()
+
+  },[]);
+
+  if (!char5) {
+
+    return <h2>Waiting for characters...</h2>
+
+  }
+
+  console.log(char5);
+
 
   return (
     <div className='App'>
