@@ -53,10 +53,12 @@ let Character = props => {
             <p>{props.char.name}</p>
             <p>Year born: {props.char.birth_year}</p>
 
-            <Species species={props.char.species} charid={props.charid}/>
-            <button style={{ marginBottom: '20px', backgroundColor: 'rgba(45, 52, 54, 0.4)', color: 'white' }} onClick={_ => {document.getElementById(props.charid).style.display = 'block'}}>
+            
+            <button style={{ marginBottom: '5px', backgroundColor: 'rgba(45, 52, 54, 0.4)', color: 'white' }} onClick={event => {document.getElementById(props.charid).style.display = 'block'; event.target.style.display = 'none'}}>
                 Show species
             </button>
+
+            <Species species={props.char.species} charid={props.charid}/>
 
         </CharDiv>
 
