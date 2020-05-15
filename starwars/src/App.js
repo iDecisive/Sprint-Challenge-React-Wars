@@ -1,6 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+//import './App.css';
+import Character from './components/Character';
 import axios from 'axios';
+import styled from 'styled-components';
+
+//Styles
+
+let AppDiv = styled.div`
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+`;
+
+let Title = styled.h1`
+
+  color: #443e3e;
+  text-shadow: 1px 1px 5px #fff;
+
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -18,11 +39,11 @@ const App = () => {
 
   useEffect(_ => {
 
-    axios.get("https://swapi.py4e.com/api/people/1/").then(res => {setChar1(res.data)}).catch()
-    axios.get("https://swapi.py4e.com/api/people/2/").then(res => {setChar2(res.data)}).catch()
-    axios.get("https://swapi.py4e.com/api/people/3/").then(res => {setChar3(res.data)}).catch()
-    axios.get("https://swapi.py4e.com/api/people/4/").then(res => {setChar4(res.data)}).catch()
-    axios.get("https://swapi.py4e.com/api/people/5/").then(res => {setChar5(res.data)}).catch()
+    axios.get('https://swapi.py4e.com/api/people/1/').then(res => {setChar1(res.data)}).catch()
+    axios.get('https://swapi.py4e.com/api/people/2/').then(res => {setChar2(res.data)}).catch()
+    axios.get('https://swapi.py4e.com/api/people/3/').then(res => {setChar3(res.data)}).catch()
+    axios.get('https://swapi.py4e.com/api/people/4/').then(res => {setChar4(res.data)}).catch()
+    axios.get('https://swapi.py4e.com/api/people/5/').then(res => {setChar5(res.data)}).catch()
 
   },[]);
 
@@ -36,9 +57,16 @@ const App = () => {
 
 
   return (
-    <div className='App'>
-      <h1 className='Header'>Characters</h1>
-    </div>
+    <AppDiv className='App'>
+      <Title className='Header'>Characters</Title>
+
+      <Character char={char1}/> {/* Would be cool to tyle their text shadow as red or blue depending on what side they're on */}
+      <Character char={char2}/>
+      <Character char={char3}/>
+      <Character char={char4}/>
+      <Character char={char5}/>
+
+    </AppDiv>
   );
 }
 
